@@ -1,0 +1,38 @@
+.priceRow,
+.diffRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.priceRow {
+  margin-bottom: 30px;
+}
+
+.priceRow p:first-child {
+  margin-right: 20px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  margin-right: 5px;
+}
+
+.triangleUp {
+  border-bottom: 9px solid green;
+}
+
+.triangleDown {
+  border-top: 10px solid red;
+}
+
+.textRed {
+  color: red;
+}
+
+.textGreen {
+  color: green;
+}

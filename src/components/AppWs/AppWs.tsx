@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import clsx from 'clsx';
+
+import styles from './styles.module.css';
 
 const AppWs = () => {
   const [isPaused, setIsPaused] = useState(false);
@@ -12,11 +15,13 @@ const AppWs = () => {
     ws.current.onmessage = (e: { data: string }) => {
       //подписка на получение данных по вебсокету
       if (isPaused) return;
-      const message = JSON.parse(e.data);
+      const message: any[] = JSON.parse(e.data);
 
-      // console.log(e);
-      // console.log(e.data);
-      setData(message);
+      // console.log(message, typeof message);
+
+      if (typeof message[1] !== 'string' && message[1]?.length > 1) {
+        setData(message[1]);
+      }
     };
   }, [isPaused]);
 
@@ -48,10 +53,31 @@ const AppWs = () => {
       {!!data && (
         <div>
           <div>
-            <h2>Статус: {status}.</h2>
+            <h2>Статус: {status}</h2>
 
-            <p>{`data: ${data}`}</p>
+            <div className={styles.priceRow}>
+              <p>{`BTC/USD: ${data[0]}`}</p>
+
+              <div className={styles.diffRow}>
+                <div
+                  className={clsx(
+                    styles.triangle,
+                    Number(data[4]) > 0
+                      ? styles.triangleUp
+                      : styles.triangleDown,
+                  )}
+                />
+                <p
+                  className={
+                    Number(data[4]) > 0 ? styles.textGreen : styles.textRed
+                  }
+                >
+                  {Math.abs(Number(data[4])).toFixed(0)}
+                </p>
+              </div>
+            </div>
           </div>
+
           <button
             onClick={() => {
               ws.current.close();
