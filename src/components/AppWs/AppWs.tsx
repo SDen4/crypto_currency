@@ -53,12 +53,14 @@ const AppWs = () => {
       {!!data && (
         <div>
           <div>
-            <h2>Статус: {status}</h2>
+            <div className={styles.priceBox}>
+              <div className={styles.priceHeader}>
+                <h2>BTC/USD:</h2>
+                <h2>{data[0]}</h2>
+              </div>
 
-            <div className={styles.priceRow}>
-              <p>{`BTC/USD: ${data[0]}`}</p>
-
-              <div className={styles.diffRow}>
+              <div className={styles.priceRow}>
+                <span>24h: </span>
                 <div
                   className={clsx(
                     styles.triangle,
@@ -68,21 +70,25 @@ const AppWs = () => {
                   )}
                 />
                 <p
-                  className={
-                    Number(data[4]) > 0 ? styles.textGreen : styles.textRed
-                  }
+                  className={clsx(
+                    styles.text,
+                    Number(data[5]) > 0 ? styles.textGreen : styles.textRed,
+                  )}
                 >
-                  {Math.abs(Number(data[4])).toFixed(0)}
+                  {Math.abs(Number(data[5]) * 100).toFixed(2)}%{' '}
                 </p>
               </div>
             </div>
           </div>
+
+          <p>Статус: {status}</p>
 
           <button
             onClick={() => {
               ws.current.close();
               setIsPaused(!isPaused);
             }}
+            className={styles.button}
           >
             {!isPaused ? 'Остановить соединение' : 'Открыть соединение'}
           </button>

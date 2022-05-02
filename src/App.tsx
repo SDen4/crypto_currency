@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className={styles.App} style={{ minHeight: appHeight }}>
-      <header className="App-header">
+      <header className={styles.appHeader}>
         <h1>Crypto currency</h1>
       </header>
 

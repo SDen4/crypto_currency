@@ -6,11 +6,15 @@
   text-align: center;
   background-color: #282c31;
   color: white;
-  /* min-height: 100vh; */
   width: 100%;
   box-sizing: border-box;
 }
 
-.App-header {
+.appHeader {
   font-size: calc(10px + 2vmin);
+  margin-bottom: 36px;
+}
+
+.appHeader h1 {
+  margin: 0;
 }
