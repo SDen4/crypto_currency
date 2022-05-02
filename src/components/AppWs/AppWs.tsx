@@ -33,20 +33,28 @@ const AppWs = () => {
 
   useEffect(() => {
     if (!isPaused) {
+      // создаем ws соединение
       ws.current = new WebSocket('wss://api-pub.bitfinex.com/ws/2');
 
-      // создаем ws соединение
+      // callback на ивент открытия соединения
       ws.current.onopen = () => {
         ws.current.send(msg);
         setStatus('соединение открыто');
-      }; // callback на ивент открытия соединения
-      ws.current.onclose = () => setStatus('соединение закрыто'); // callback на ивент закрытия соединения
+      };
+
+      // callback на ивент закрытия соединения
+      ws.current.onclose = () => setStatus('соединение закрыто');
 
       gettingData();
     }
 
     return () => ws.current.close(); // кода меняется isPaused - соединение закрывается
   }, [ws, isPaused, gettingData, msg]);
+
+  const onBtnClick = () => {
+    ws.current.close();
+    setIsPaused(!isPaused);
+  };
 
   return (
     <>
@@ -83,13 +91,7 @@ const AppWs = () => {
 
           <p>Статус: {status}</p>
 
-          <button
-            onClick={() => {
-              ws.current.close();
-              setIsPaused(!isPaused);
-            }}
-            className={styles.button}
-          >
+          <button onClick={onBtnClick} className={styles.button}>
             {!isPaused ? 'Остановить соединение' : 'Открыть соединение'}
           </button>
         </div>
