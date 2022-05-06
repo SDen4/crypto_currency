@@ -1,0 +1,47 @@
+.summary {
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+@media (min-width: 768px) {
+  .summary:hover {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+  }
+}
+
+.addContainer {
+  margin-top: 20px;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.priceRow:last-child {
+  margin-bottom: 0;
+}
+
+.priceRow span {
+  margin-right: 15px;
+}
+
+.addRow {
+  justify-content: space-between;
+}
+
+.addRow span {
+  text-align: left;
+}
+
+.text {
+  margin: 0;
+}

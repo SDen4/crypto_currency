@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 
+import AddInfo from '../AddInfo';
+
+import { addInfo } from '../../constant/addInfo';
+
 import styles from './styles.module.css';
 
 const AppWs = () => {
@@ -56,21 +60,6 @@ const AppWs = () => {
     setIsPaused(!isPaused);
   };
 
-  const addInfo = [
-    { title: 'Price of the last trade', id: 6, fix: 0 },
-    { title: 'Price of the last lowest ask', id: 2, fix: 0 },
-    { title: 'Sum of the 25 highest bid sizes', id: 1, fix: 2 },
-    { title: 'Sum of the 25 lowest ask sizes', id: 3, fix: 2 },
-    { title: 'Daily volume', id: 7, fix: 2 },
-    { title: 'Daily high', id: 8, fix: 0 },
-    { title: 'Daily low', id: 9, fix: 0 },
-    {
-      title: 'Amount that the last price has changed since yesterday',
-      id: 4,
-      fix: 0,
-    },
-  ];
-
   return (
     <>
       {!!data && (
@@ -102,25 +91,7 @@ const AppWs = () => {
                 </p>
               </div>
 
-              <details className={styles.details}>
-                <summary className={styles.summary}>
-                  Additional information
-                </summary>
-
-                <div className={styles.addContainer}>
-                  {addInfo.map((el) => (
-                    <div
-                      className={clsx(styles.priceRow, styles.addRow)}
-                      key={el.id}
-                    >
-                      <span>{el.title}:</span>
-                      <p className={styles.text}>
-                        {Number(data[el.id]).toFixed(el.fix)}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </details>
+              <AddInfo addInfo={addInfo} data={data} />
             </div>
           </div>
 
