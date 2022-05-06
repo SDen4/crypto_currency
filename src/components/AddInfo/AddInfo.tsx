@@ -6,8 +6,6 @@ import { AddInfoType } from './types';
 import styles from './styles.module.css';
 
 const AddInfo: React.FC<AddInfoType> = ({ addInfo, data }) => {
-  console.log(addInfo);
-  console.log(data);
   return (
     <details>
       <summary className={styles.summary}>Additional information</summary>
