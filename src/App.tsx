@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import AppWs from './components/AppWs';
 
+import { symbols } from './constant/symbols';
+
 import styles from './App.module.css';
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
         <h1>Crypto currency</h1>
       </header>
 
-      <AppWs />
+      <AppWs symbol={symbols[0]} />
     </div>
   );
 }

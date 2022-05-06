@@ -5,13 +5,19 @@ import AddInfo from '../AddInfo';
 
 import { addInfo } from '../../constant/addInfo';
 
+import { AppWsType } from './types';
+
 import styles from './styles.module.css';
 
-const AppWs = () => {
+const AppWs: React.FC<AppWsType> = ({ symbol }) => {
   const [isPaused, setIsPaused] = useState(false);
   const [data, setData] = useState(null);
   const [status, setStatus] = useState('');
   const ws: any = useRef(null);
+
+  const currencyName: string = `${symbol.slice(1, 4)}/${symbol.slice(
+    4,
+  )}`.toUpperCase();
 
   const gettingData = useCallback(() => {
     if (!ws.current) return;
@@ -32,7 +38,7 @@ const AppWs = () => {
   let msg = JSON.stringify({
     event: 'subscribe',
     channel: 'ticker',
-    symbol: 'tBTCUSD',
+    symbol,
   });
 
   useEffect(() => {
@@ -67,7 +73,7 @@ const AppWs = () => {
           <div>
             <div className={styles.priceBox}>
               <div className={styles.priceHeader}>
-                <h2>BTC/USD:</h2>
+                <h2>{currencyName}:</h2>
                 <h2>{data[0]}</h2>
               </div>
               <div className={styles.priceRow}>
