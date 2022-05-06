@@ -18,3 +18,9 @@
 .appHeader h1 {
   margin: 0;
 }
+
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+}
