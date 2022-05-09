@@ -69,9 +69,9 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
   return (
     <>
       {!!data && (
-        <div>
-          <div>
-            <div className={styles.priceBox}>
+        <>
+          <>
+            <div className={clsx(styles.priceBox, isPaused && styles.paused)}>
               <div className={styles.priceHeader}>
                 <h2>{currencyName}:</h2>
                 <h2>{data[0]}</h2>
@@ -99,14 +99,14 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
 
               <AddInfo addInfo={addInfo} data={data} />
             </div>
-          </div>
+          </>
 
           <p>Статус: {status}</p>
 
           <button onClick={onBtnClick} className={styles.button}>
             {!isPaused ? 'Остановить соединение' : 'Открыть соединение'}
           </button>
-        </div>
+        </>
       )}
     </>
   );

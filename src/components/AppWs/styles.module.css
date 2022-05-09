@@ -9,6 +9,11 @@
   padding: 20px;
   min-width: 250px;
   box-sizing: border-box;
+  transition: 1s;
+}
+
+.paused {
+  border-color: red;
 }
 
 .priceRow {
