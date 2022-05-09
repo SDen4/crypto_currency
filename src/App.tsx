@@ -23,7 +23,15 @@ function App() {
         <h1>Crypto currency</h1>
       </header>
 
-      <AppWs symbol={symbols[0]} />
+      <div className={styles.sliderContainer}>
+        <ul className={styles.list}>
+          {symbols.map((el, i) => (
+            <li className={styles.listItem} key={el}>
+              <AppWs symbol={symbols[i]} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

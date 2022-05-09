@@ -19,6 +19,25 @@
   margin: 0;
 }
 
+.sliderContainer {
+  max-width: 250px;
+  overflow-x: scroll;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none; 
+}
+
+.sliderContainer::-webkit-scrollbar { width: 0 }
+
+.list {
+  display: flex;
+  padding: 0;
+}
+
+.listItem{
+  list-style-type: none;
+}
+
 @media (max-width: 768px) {
   .App {
     padding: 10px;
