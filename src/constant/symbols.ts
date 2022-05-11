@@ -1,1 +1,5 @@
-export const symbols: ('tBTCUSD' | 'tETHUSD')[] = ['tBTCUSD', 'tETHUSD'];
+export const symbols: ('tBTCUSD' | 'tETHUSD' | 'tDSHUSB')[] = [
+  'tBTCUSD',
+  'tETHUSD',
+  'tDSHUSB',
+];

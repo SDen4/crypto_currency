@@ -2,15 +2,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 480px;
+  width: 380px;
 }
 
 .sliderWindow {
   max-width: 250px;
+  min-width: 250px;
+  min-height: 280px;
   overflow-x: scroll;
   overflow-y: auto;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
+  position: relative;
 }
 
 .sliderWindow::-webkit-scrollbar {
@@ -19,7 +22,12 @@
 
 .list {
   display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
   padding: 0;
+  margin: 0;
+  transition: transform 0.3s;
 }
 
 .listItem {
@@ -27,7 +35,12 @@
 }
 
 .buttonWrapper {
+  width: 30px;
   height: 145px;
+}
+
+.hide {
+  display: none;
 }
 
 @media (max-width: 490px) {

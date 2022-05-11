@@ -39,6 +39,25 @@
   right: 4px;
 }
 
+.disabled {
+  border: 1px solid rgb(58, 57, 57);
+  cursor: default;
+}
+
+.disabled::after {
+  border-top: 1px solid rgb(58, 57, 57);
+  border-right: 1px solid rgb(58, 57, 57);
+}
+
+.disabled:hover {
+  background-color: transparent;
+}
+
+.disabled:hover::after {
+  border-top: 1px solid rgb(58, 57, 57);
+  border-right: 1px solid rgb(58, 57, 57);
+}
+
 @media (max-width: 490px) {
   .button {
     display: none;

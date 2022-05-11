@@ -66,9 +66,13 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
     setIsPaused(!isPaused);
   };
 
+  console.log(currencyName);
+  // @ts-ignore
+  console.log(data);
+
   return (
     <>
-      {!!data && (
+      {!!data ? (
         <>
           <>
             <div className={clsx(styles.priceBox, isPaused && styles.paused)}>
@@ -107,6 +111,8 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
             {!isPaused ? 'Остановить соединение' : 'Открыть соединение'}
           </button>
         </>
+      ) : (
+        <div className={clsx(styles.priceBox, styles.noData)}>No data...</div>
       )}
     </>
   );

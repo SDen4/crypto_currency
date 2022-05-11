@@ -1,3 +1,3 @@
 export type AppWsType = {
-  symbol: 'tBTCUSD' | 'tETHUSD';
+  symbol: 'tBTCUSD' | 'tETHUSD' | 'tDSHUSB';
 };
