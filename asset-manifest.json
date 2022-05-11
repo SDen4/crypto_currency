@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/crypto_currency/static/css/main.d204e12c.css",
-    "main.js": "/crypto_currency/static/js/main.8a9e8d9d.js",
+    "main.css": "/crypto_currency/static/css/main.0bb77f75.css",
+    "main.js": "/crypto_currency/static/js/main.dd4cb401.js",
     "index.html": "/crypto_currency/index.html",
-    "main.d204e12c.css.map": "/crypto_currency/static/css/main.d204e12c.css.map",
-    "main.8a9e8d9d.js.map": "/crypto_currency/static/js/main.8a9e8d9d.js.map"
+    "main.0bb77f75.css.map": "/crypto_currency/static/css/main.0bb77f75.css.map",
+    "main.dd4cb401.js.map": "/crypto_currency/static/js/main.dd4cb401.js.map"
   },
   "entrypoints": [
-    "static/css/main.d204e12c.css",
-    "static/js/main.8a9e8d9d.js"
+    "static/css/main.0bb77f75.css",
+    "static/js/main.dd4cb401.js"
   ]
 }
