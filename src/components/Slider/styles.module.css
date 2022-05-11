@@ -1,4 +1,11 @@
 .sliderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 480px;
+}
+
+.sliderWindow {
   max-width: 250px;
   overflow-x: scroll;
   overflow-y: auto;
@@ -6,7 +13,7 @@
   overflow: -moz-scrollbars-none;
 }
 
-.sliderContainer::-webkit-scrollbar {
+.sliderWindow::-webkit-scrollbar {
   width: 0;
 }
 
@@ -17,4 +24,14 @@
 
 .listItem {
   list-style-type: none;
+}
+
+.buttonWrapper {
+  height: 145px;
+}
+
+@media (max-width: 490px) {
+  .sliderContainer {
+    width: auto;
+  }
 }
