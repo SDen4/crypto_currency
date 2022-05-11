@@ -10,9 +10,8 @@ import { AppWsType } from './types';
 import styles from './styles.module.css';
 
 const AppWs: React.FC<AppWsType> = ({ symbol }) => {
-  const [isPaused, setIsPaused] = useState(false);
   const [data, setData] = useState(null);
-  const [status, setStatus] = useState('');
+  const [isDisconnect, setIsDisconnect] = useState<boolean>(false);
   const ws: any = useRef(null);
 
   const currencyName: string = `${symbol.slice(1, 4)}/${symbol.slice(
@@ -24,7 +23,7 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
 
     ws.current.onmessage = (e: { data: string }) => {
       //подписка на получение данных по вебсокету
-      if (isPaused) return;
+      if (isDisconnect) return;
       const message: any[] = JSON.parse(e.data);
 
       // console.log(message, typeof message);
@@ -33,7 +32,7 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
         setData(message[1]);
       }
     };
-  }, [isPaused]);
+  }, [isDisconnect]);
 
   let msg = JSON.stringify({
     event: 'subscribe',
@@ -42,40 +41,33 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
   });
 
   useEffect(() => {
-    if (!isPaused) {
+    if (!isDisconnect) {
       // создаем ws соединение
       ws.current = new WebSocket('wss://api-pub.bitfinex.com/ws/2');
 
       // callback на ивент открытия соединения
       ws.current.onopen = () => {
         ws.current.send(msg);
-        setStatus('соединение открыто');
+        // setStatus('соединение открыто');
       };
 
-      // callback на ивент закрытия соединения
-      ws.current.onclose = () => setStatus('соединение закрыто');
+      // callback на event закрытия соединения
+      ws.current.onclose = () => setIsDisconnect(true);
 
       gettingData();
     }
 
-    return () => ws.current.close(); // кода меняется isPaused - соединение закрывается
-  }, [ws, isPaused, gettingData, msg]);
-
-  const onBtnClick = () => {
-    ws.current.close();
-    setIsPaused(!isPaused);
-  };
-
-  console.log(currencyName);
-  // @ts-ignore
-  console.log(data);
+    return () => ws.current.close();
+  }, [ws, gettingData, msg, isDisconnect]);
 
   return (
     <>
       {!!data ? (
         <>
           <>
-            <div className={clsx(styles.priceBox, isPaused && styles.paused)}>
+            <div
+              className={clsx(styles.priceBox, isDisconnect && styles.paused)}
+            >
               <div className={styles.priceHeader}>
                 <h2>{currencyName}:</h2>
                 <h2>{data[0]}</h2>
@@ -105,11 +97,7 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
             </div>
           </>
 
-          <p>Статус: {status}</p>
-
-          <button onClick={onBtnClick} className={styles.button}>
-            {!isPaused ? 'Остановить соединение' : 'Открыть соединение'}
-          </button>
+          {isDisconnect && <p>No connection</p>}
         </>
       ) : (
         <div className={clsx(styles.priceBox, styles.noData)}>No data...</div>

@@ -8,12 +8,11 @@
 .sliderWindow {
   max-width: 250px;
   min-width: 250px;
-  min-height: 280px;
+  height: fit-content;
   overflow-x: scroll;
   overflow-y: auto;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
-  position: relative;
 }
 
 .sliderWindow::-webkit-scrollbar {
@@ -22,9 +21,8 @@
 
 .list {
   display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
+  justify-content: flex-start;
+  align-items: center;
   padding: 0;
   margin: 0;
   transition: transform 0.3s;
@@ -36,7 +34,7 @@
 
 .buttonWrapper {
   width: 30px;
-  height: 145px;
+  height: 80px;
 }
 
 .hide {
