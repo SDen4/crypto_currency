@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import AppWs from './components/AppWs';
-
-import { symbols } from './constant/symbols';
+import Slider from './components/Slider';
 
 import styles from './App.module.css';
 
@@ -23,15 +21,7 @@ function App() {
         <h1>Crypto currency</h1>
       </header>
 
-      <div className={styles.sliderContainer}>
-        <ul className={styles.list}>
-          {symbols.map((el, i) => (
-            <li className={styles.listItem} key={el}>
-              <AppWs symbol={symbols[i]} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Slider />
     </div>
   );
 }

@@ -1,0 +1,20 @@
+.sliderContainer {
+  max-width: 250px;
+  overflow-x: scroll;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.sliderContainer::-webkit-scrollbar {
+  width: 0;
+}
+
+.list {
+  display: flex;
+  padding: 0;
+}
+
+.listItem {
+  list-style-type: none;
+}
