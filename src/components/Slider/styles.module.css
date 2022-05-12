@@ -9,8 +9,7 @@
   max-width: 250px;
   min-width: 250px;
   height: fit-content;
-  overflow-x: scroll;
-  overflow-y: auto;
+  overflow: hidden;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
 }

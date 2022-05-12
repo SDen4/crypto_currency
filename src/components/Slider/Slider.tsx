@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, TouchEvent } from 'react';
 
 import AppWs from '../AppWs';
 import SliderButton from '../../ui/SliderButton';
@@ -24,6 +24,27 @@ const Slider = () => {
     }
   };
 
+  const [start, setStart] = useState<number>(0);
+  const onTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    console.log(event.changedTouches[0].clientX);
+    setStart(event.changedTouches[0].clientX);
+  };
+  const onTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    const end = event.changedTouches[0].clientX;
+
+    if (
+      (start > end && slide >= symbols.length - 1) ||
+      (start < end && slide <= 0)
+    )
+      return;
+
+    if (start > end) {
+      setSlide((prev) => prev + 1);
+    } else {
+      setSlide((prev) => prev - 1);
+    }
+  };
+
   return (
     <section className={styles.sliderContainer}>
       <div className={styles.buttonWrapper}>
@@ -34,7 +55,11 @@ const Slider = () => {
         />
       </div>
 
-      <div className={styles.sliderWindow}>
+      <div
+        className={styles.sliderWindow}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <ul
           className={styles.list}
           style={{ transform: `translateX(-${slide * 250}px)` }}
