@@ -33,6 +33,7 @@ const Slider = () => {
           disabled={slide === 0}
         />
       </div>
+
       <div className={styles.sliderWindow}>
         <ul
           className={styles.list}
@@ -45,6 +46,7 @@ const Slider = () => {
           ))}
         </ul>
       </div>
+
       <div className={styles.buttonWrapper}>
         <SliderButton
           onClick={() => buttonOnClick('right')}
