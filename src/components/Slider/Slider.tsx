@@ -1,4 +1,5 @@
 import React, { useState, TouchEvent } from 'react';
+import clsx from 'clsx';
 
 import AppWs from '../AppWs';
 import SliderButton from '../../ui/SliderButton';
@@ -46,7 +47,7 @@ const Slider = () => {
 
   return (
     <section className={styles.sliderContainer}>
-      <div className={styles.buttonWrapper}>
+      <div className={clsx(styles.buttonWrapper, styles.hide)}>
         <SliderButton
           left
           onClick={() => buttonOnClick('left')}
@@ -71,7 +72,7 @@ const Slider = () => {
         </ul>
       </div>
 
-      <div className={styles.buttonWrapper}>
+      <div className={clsx(styles.buttonWrapper, styles.hide)}>
         <SliderButton
           onClick={() => buttonOnClick('right')}
           disabled={slide === symbols.length - 1}
