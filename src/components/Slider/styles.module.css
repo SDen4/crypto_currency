@@ -41,12 +41,12 @@
   height: 60px;
 }
 
-.hide {
-  display: none;
-}
-
 @media (max-width: 490px) {
   .sliderContainer {
     width: auto;
+  }
+
+  .hide {
+    display: none;
   }
 }
