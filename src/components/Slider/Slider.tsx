@@ -34,13 +34,14 @@ const Slider = () => {
 
     if (
       (start > end && slide >= symbols.length - 1) ||
-      (start < end && slide <= 0)
+      (start < end && slide <= 0) ||
+      Math.abs(start - end) < 30
     )
       return;
 
-    if (start > end) {
+    if (start - end > 30) {
       setSlide((prev) => prev + 1);
-    } else {
+    } else if (start - end < 30) {
       setSlide((prev) => prev - 1);
     }
   };
