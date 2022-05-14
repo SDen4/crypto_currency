@@ -100,7 +100,15 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
           {isDisconnect && <p>No connection</p>}
         </>
       ) : (
-        <div className={clsx(styles.priceBox, styles.noData)}>No data...</div>
+        <div
+          className={clsx(
+            styles.priceBox,
+            styles.noData,
+            isDisconnect && styles.noConnection,
+          )}
+        >
+          No data...
+        </div>
       )}
     </>
   );

@@ -97,3 +97,7 @@
   align-items: center;
   min-height: 148px;
 }
+
+.noConnection {
+  margin-top: -35px;
+}
