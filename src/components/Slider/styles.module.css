@@ -29,6 +29,11 @@
 
 .listItem {
   list-style-type: none;
+  margin-right: 5px;
+}
+
+.listItem:last-child {
+  margin-right: 0;
 }
 
 .buttonWrapper {

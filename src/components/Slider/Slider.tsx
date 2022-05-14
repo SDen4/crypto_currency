@@ -26,7 +26,6 @@ const Slider = () => {
 
   const [start, setStart] = useState<number>(0);
   const onTouchStart = (event: TouchEvent<HTMLDivElement>) => {
-    console.log(event.changedTouches[0].clientX);
     setStart(event.changedTouches[0].clientX);
   };
   const onTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
@@ -62,7 +61,7 @@ const Slider = () => {
       >
         <ul
           className={styles.list}
-          style={{ transform: `translateX(-${slide * 250}px)` }}
+          style={{ transform: `translateX(-${slide * 255}px)` }}
         >
           {symbols.map((el, i) => (
             <li className={styles.listItem} key={el}>
