@@ -42,6 +42,11 @@
 }
 
 @media (max-width: 490px) {
+  .sliderWindow {
+    max-width: 95vw;
+    min-width: 95vw;
+  }
+
   .sliderContainer {
     width: auto;
   }

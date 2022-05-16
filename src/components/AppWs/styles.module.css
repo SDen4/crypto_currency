@@ -101,3 +101,9 @@
 .noConnection {
   margin-top: -35px;
 }
+
+@media (max-width: 490px) {
+  .priceBox {
+    min-width: 95vw;
+  }
+}

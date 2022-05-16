@@ -1,4 +1,4 @@
-import React, { useState, TouchEvent } from 'react';
+import React, { useState, TouchEvent, useEffect } from 'react';
 import clsx from 'clsx';
 
 import AppWs from '../AppWs';
@@ -10,6 +10,20 @@ import styles from './styles.module.css';
 
 const Slider = () => {
   const [slide, setSlide] = useState<number>(0);
+  const [screenSize, setScreenSize] = useState<number>(0);
+
+  useEffect(() => {
+    setScreenSize(window.innerWidth);
+  }, []);
+
+  // resize & height
+  useEffect(() => {
+    window.addEventListener(
+      'resize',
+      () => setScreenSize(window.innerWidth),
+      true,
+    );
+  }, [screenSize]);
 
   const buttonOnClick = (direction: 'right' | 'left') => {
     if (
@@ -63,7 +77,15 @@ const Slider = () => {
       >
         <ul
           className={styles.list}
-          style={{ transform: `translateX(-${slide * 255}px)` }}
+          style={
+            screenSize < 490
+              ? {
+                  transform: `translateX(calc(-${slide * 95}vw - ${
+                    slide * 5
+                  }px))`,
+                }
+              : { transform: `translateX(-${slide * 255}px)` }
+          }
         >
           {symbols.map((el, i) => (
             <li className={styles.listItem} key={el}>
