@@ -84,7 +84,7 @@ const Slider = () => {
                     slide * 5
                   }px))`,
                 }
-              : { transform: `translateX(-${slide * 255}px)` }
+              : { transform: `translateX(-${slide * 340}px)` }
           }
         >
           {symbols.map((el, i) => (
