@@ -100,6 +100,7 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
                       Number(data[1]) < Number(data[3])
                         ? styles.textGreen
                         : styles.textRed,
+                      styles.bold,
                     )}
                   >
                     {Number(data[1]) < Number(data[3]) ? 'Buy' : 'Sell'}
