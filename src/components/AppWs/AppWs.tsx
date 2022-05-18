@@ -73,24 +73,39 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
                 <h2>{data[0]}</h2>
               </div>
               <div className={styles.priceRow}>
-                <span>24h: </span>
-                <div
-                  className={clsx(
-                    styles.triangle,
-                    Number(data[4]) > 0
-                      ? styles.triangleUp
-                      : styles.triangleDown,
-                  )}
-                />
+                <div className={styles.rowUnit}>
+                  <span>24h: </span>
 
-                <p
-                  className={clsx(
-                    styles.text,
-                    Number(data[5]) > 0 ? styles.textGreen : styles.textRed,
-                  )}
-                >
-                  {Math.abs(Number(data[5]) * 100).toFixed(2)}%{' '}
-                </p>
+                  <div
+                    className={clsx(
+                      styles.triangle,
+                      Number(data[4]) > 0
+                        ? styles.triangleUp
+                        : styles.triangleDown,
+                    )}
+                  />
+
+                  <p
+                    className={clsx(
+                      styles.text,
+                      Number(data[5]) > 0 ? styles.textGreen : styles.textRed,
+                    )}
+                  >
+                    {Math.abs(Number(data[5]) * 100).toFixed(2)}%{' '}
+                  </p>
+                </div>
+                <div className={styles.rowUnit}>
+                  <span>BUY/SELL:</span>
+
+                  <div
+                    className={clsx(
+                      styles.triangle,
+                      Number(data[1]) > Number(data[3])
+                        ? styles.triangleUp
+                        : styles.triangleDown,
+                    )}
+                  />
+                </div>
               </div>
 
               <AddInfo addInfo={addInfo} data={data} />

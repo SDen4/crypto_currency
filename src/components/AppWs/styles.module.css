@@ -6,7 +6,7 @@
   border: 1px solid #fff;
   border-radius: 5px;
   margin-bottom: 30px;
-  padding: 20px;
+  padding: 20px 16px 16px;
   min-width: 335px;
   box-sizing: border-box;
   transition: 1s;
@@ -18,10 +18,16 @@
 
 .priceRow {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
   width: 100%;
+}
+
+.rowUnit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .priceRow:last-child {
@@ -37,7 +43,9 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 15px;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .priceHeader h2 {
@@ -51,17 +59,17 @@
 .triangle {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
   margin-right: 5px;
 }
 
 .triangleUp {
-  border-bottom: 9px solid green;
+  border-bottom: 11px solid green;
 }
 
 .triangleDown {
-  border-top: 10px solid red;
+  border-top: 11px solid red;
 }
 
 .text {
