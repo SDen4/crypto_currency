@@ -95,12 +95,20 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
                   </p>
                 </div>
                 <div className={styles.rowUnit}>
-                  <span>BUY/SELL:</span>
+                  <span
+                    className={clsx(
+                      Number(data[1]) < Number(data[3])
+                        ? styles.textGreen
+                        : styles.textRed,
+                    )}
+                  >
+                    {Number(data[1]) < Number(data[3]) ? 'Sell' : 'Buy'}
+                  </span>
 
                   <div
                     className={clsx(
                       styles.triangle,
-                      Number(data[1]) > Number(data[3])
+                      Number(data[1]) < Number(data[3])
                         ? styles.triangleUp
                         : styles.triangleDown,
                     )}
