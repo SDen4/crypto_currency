@@ -102,7 +102,7 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
                         : styles.textRed,
                     )}
                   >
-                    {Number(data[1]) < Number(data[3]) ? 'Sell' : 'Buy'}
+                    {Number(data[1]) < Number(data[3]) ? 'Buy' : 'Sell'}
                   </span>
 
                   <div
