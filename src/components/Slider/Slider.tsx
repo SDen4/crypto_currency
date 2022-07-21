@@ -1,14 +1,14 @@
-import React, { useState, TouchEvent, useEffect } from 'react';
-import clsx from 'clsx';
+import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
 
 import AppWs from '../AppWs';
-import SliderButton from '../../ui/SliderButton';
 
 import { symbols } from '../../constant/symbols';
 
 import styles from './styles.module.css';
 
-const Slider = () => {
+const LazySliderButton = React.lazy(() => import('../../ui/SliderButton'));
+
+const Slider: React.FC = () => {
   const [slide, setSlide] = useState<number>(0);
   const [screenSize, setScreenSize] = useState<number>(0);
 
@@ -62,13 +62,17 @@ const Slider = () => {
 
   return (
     <section className={styles.sliderContainer}>
-      <div className={clsx(styles.buttonWrapper, styles.hide)}>
-        <SliderButton
-          left
-          onClick={() => buttonOnClick('left')}
-          disabled={slide === 0}
-        />
-      </div>
+      {screenSize > 490 && (
+        <div className={styles.buttonWrapper}>
+          <Suspense fallback={<p>loading...</p>}>
+            <LazySliderButton
+              left
+              onClick={() => buttonOnClick('left')}
+              disabled={slide === 0}
+            />
+          </Suspense>
+        </div>
+      )}
 
       <div
         className={styles.sliderWindow}
@@ -95,12 +99,16 @@ const Slider = () => {
         </ul>
       </div>
 
-      <div className={clsx(styles.buttonWrapper, styles.hide)}>
-        <SliderButton
-          onClick={() => buttonOnClick('right')}
-          disabled={slide === symbols.length - 1}
-        />
-      </div>
+      {screenSize > 490 && (
+        <div className={styles.buttonWrapper}>
+          <Suspense fallback={<p>loading...</p>}>
+            <LazySliderButton
+              onClick={() => buttonOnClick('right')}
+              disabled={slide === symbols.length - 1}
+            />
+          </Suspense>
+        </div>
+      )}
     </section>
   );
 };
