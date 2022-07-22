@@ -2,6 +2,6 @@
   "short_name": "Crypto cyrrency",
   "name": "Crypto Cyrrency App",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#000000"
+  "theme_color": "#282c31",
+  "background_color": "#282c31"
 }
