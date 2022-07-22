@@ -19,6 +19,7 @@ const SliderButton: React.FC<SliderButtonType> = ({
         disabled && styles.disabled,
       )}
       onClick={onClick}
+      aria-label={left ? 'Left' : 'Right'}
     />
   );
 };
