@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import clsx from 'clsx';
 
 import styles from './styles.module.css';
@@ -12,4 +12,4 @@ const InitHint: React.FC = () => {
   );
 };
 
-export default InitHint;
+export default memo(InitHint);

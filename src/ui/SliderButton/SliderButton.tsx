@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import clsx from 'clsx';
 
 import { SliderButtonType } from './types';
@@ -24,4 +24,4 @@ const SliderButton: React.FC<SliderButtonType> = ({
   );
 };
 
-export default SliderButton;
+export default memo(SliderButton);

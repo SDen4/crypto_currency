@@ -1,4 +1,4 @@
-import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
+import React, { useState, TouchEvent, useEffect, Suspense, memo } from 'react';
 
 import AppWs from '../AppWs';
 
@@ -113,4 +113,4 @@ const Slider: React.FC = () => {
   );
 };
 
-export default Slider;
+export default memo(Slider);

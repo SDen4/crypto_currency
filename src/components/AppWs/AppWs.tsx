@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, memo } from 'react';
 import clsx from 'clsx';
 
 import AddInfo from '../AddInfo';
@@ -138,4 +138,4 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
   );
 };
 
-export default AppWs;
+export default memo(AppWs);

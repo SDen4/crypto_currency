@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { AddInfoType } from './types';
 
@@ -21,4 +21,4 @@ const AddInfo: React.FC<AddInfoType> = ({ addInfo, data }) => {
   );
 };
 
-export default AddInfo;
+export default memo(AddInfo);
