@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 
 import Slider from './components/Slider';
-import InitHint from './components/InitHint';
 
 import styles from './App.module.css';
+
+const LazyInitHint = React.lazy(() => import('./components/InitHint'));
 
 function App() {
   const [appHeight, setAppHeight] = useState<number>(0);
@@ -38,7 +39,9 @@ function App() {
 
       {showHint && (
         <div className={styles.initHintWrapper}>
-          <InitHint />
+          <Suspense fallback={<p>Loading...</p>}>
+            <LazyInitHint />
+          </Suspense>
         </div>
       )}
     </div>
