@@ -13,9 +13,7 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
   const [isDisconnect, setIsDisconnect] = useState<boolean>(false);
   const ws: any = useRef(null);
 
-  const currencyName: string = `${symbol.slice(1, 4)}/${symbol.slice(
-    4,
-  )}`.toUpperCase();
+  const currencyName: string = `${symbol.slice(1, 4)}/${symbol.slice(4)}`;
 
   const gettingData = useCallback(() => {
     if (!ws.current) return;
