@@ -15,7 +15,6 @@ Real time crypto currency prices update
 - React
 - Typescript
 - CSS
-- clsx
 - gh-pages
 - websockets
 

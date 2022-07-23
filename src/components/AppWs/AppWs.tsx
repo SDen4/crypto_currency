@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, useCallback, memo } from 'react';
-import clsx from 'clsx';
 
 import AddInfo from '../AddInfo';
 
@@ -66,7 +65,7 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
         <>
           <>
             <div
-              className={clsx(styles.priceBox, isDisconnect && styles.paused)}
+              className={`${styles.priceBox} ${isDisconnect && styles.paused}`}
             >
               <div className={styles.priceHeader}>
                 <h2>{currencyName}:</h2>
@@ -77,42 +76,38 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
                   <span>24h: </span>
 
                   <div
-                    className={clsx(
-                      styles.triangle,
+                    className={`${styles.triangle} ${
                       Number(data[4]) > 0
                         ? styles.triangleUp
-                        : styles.triangleDown,
-                    )}
+                        : styles.triangleDown
+                    }`}
                   />
 
                   <p
-                    className={clsx(
-                      styles.text,
-                      Number(data[5]) > 0 ? styles.textGreen : styles.textRed,
-                    )}
+                    className={`${styles.text} ${
+                      Number(data[5]) > 0 ? styles.textGreen : styles.textRed
+                    }`}
                   >
                     {Math.abs(Number(data[5]) * 100).toFixed(2)}%{' '}
                   </p>
                 </div>
                 <div className={styles.rowUnit}>
                   <span
-                    className={clsx(
+                    className={`${
                       Number(data[1]) < Number(data[3])
                         ? styles.textGreen
-                        : styles.textRed,
-                      styles.bold,
-                    )}
+                        : styles.textRed
+                    } ${styles.bold}`}
                   >
                     {Number(data[1]) < Number(data[3]) ? 'Buy' : 'Sell'}
                   </span>
 
                   <div
-                    className={clsx(
-                      styles.triangle,
+                    className={`${styles.triangle} ${
                       Number(data[1]) < Number(data[3])
                         ? styles.triangleUp
-                        : styles.triangleDown,
-                    )}
+                        : styles.triangleDown
+                    }`}
                   />
                 </div>
               </div>
@@ -125,11 +120,9 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
         </>
       ) : (
         <div
-          className={clsx(
-            styles.priceBox,
-            styles.noData,
-            isDisconnect && styles.noConnection,
-          )}
+          className={`${styles.priceBox} ${styles.noData} ${
+            isDisconnect && styles.noConnection
+          }`}
         >
           No data...
         </div>

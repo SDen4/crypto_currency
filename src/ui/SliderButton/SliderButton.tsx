@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import clsx from 'clsx';
 
 import { SliderButtonType } from './types';
 
@@ -13,11 +12,9 @@ const SliderButton: React.FC<SliderButtonType> = ({
   return (
     <button
       type="button"
-      className={clsx(
-        styles.button,
-        left && styles.buttonLeft,
-        disabled && styles.disabled,
-      )}
+      className={`${styles.button} ${left && styles.buttonLeft} ${
+        disabled && styles.disabled
+      }`}
       onClick={onClick}
       aria-label={left ? 'Left' : 'Right'}
     />
