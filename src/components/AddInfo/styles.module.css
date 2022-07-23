@@ -21,7 +21,7 @@
 
 .priceRow {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
   width: 100%;
@@ -33,13 +33,6 @@
 
 .priceRow span {
   margin-right: 15px;
-}
-
-.addRow {
-  justify-content: space-between;
-}
-
-.addRow span {
   text-align: left;
 }
 

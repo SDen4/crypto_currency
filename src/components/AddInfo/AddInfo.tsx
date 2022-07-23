@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 
 import { AddInfoType } from './types';
 
@@ -12,7 +11,7 @@ const AddInfo: React.FC<AddInfoType> = ({ addInfo, data }) => {
 
       <div className={styles.addContainer}>
         {addInfo.map((el: any) => (
-          <div className={clsx(styles.priceRow, styles.addRow)} key={el.id}>
+          <div className={styles.priceRow} key={el.id}>
             <span>{el.title}:</span>
             <p className={styles.text}>{Number(data[el.id]).toFixed(el.fix)}</p>
           </div>
