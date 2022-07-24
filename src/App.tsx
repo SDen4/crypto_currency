@@ -32,7 +32,7 @@ function App() {
   return (
     <div className={styles.App} style={{ minHeight: appHeight }}>
       <header className={styles.appHeader}>
-        <h1>Crypto currency</h1>
+        <h1>Crypto Currency</h1>
       </header>
 
       <Slider />
