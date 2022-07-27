@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import styles from './styles.module.css';
 
@@ -11,4 +11,4 @@ const InitHint: React.FC = () => {
   );
 };
 
-export default memo(InitHint);
+export default InitHint;
