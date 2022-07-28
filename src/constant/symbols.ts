@@ -1,5 +1,8 @@
-export const symbols: ('tBTCUSD' | 'tETHUSD' | 'tDSHUSB')[] = [
+import { SymbolsType } from '../types';
+
+export const symbols: SymbolsType[] = [
   'tBTCUSD',
+  'tBTCEUR',
   'tETHUSD',
-  'tDSHUSB',
+  'tETHEUR',
 ];

@@ -1,3 +1,5 @@
+import { SymbolsType } from '../../types';
+
 export type AppWsType = {
-  symbol: 'tBTCUSD' | 'tETHUSD' | 'tDSHUSB';
+  symbol: SymbolsType;
 };
