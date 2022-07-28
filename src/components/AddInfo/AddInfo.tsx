@@ -13,7 +13,7 @@ const AddInfo: React.FC<AddInfoType> = ({ addInfo, data }) => {
         {addInfo.map((el: addInfoItemType) => (
           <div className={styles.priceRow} key={el.id}>
             <span>{el.title}:</span>
-            <p className={styles.text}>{Number(data[el.id]).toFixed(el.fix)}</p>
+            <p>{Number(data[el.id]).toFixed(el.fix)}</p>
           </div>
         ))}
       </div>

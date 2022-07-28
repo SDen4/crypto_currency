@@ -8,7 +8,7 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.arrow {
+.arrowsContainer div {
   padding: 1rem;
   box-shadow: 2px -2px white inset;
   transform: rotate(225deg);

@@ -66,7 +66,7 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
               className={`${styles.priceBox} ${isDisconnect && styles.paused}`}
             >
               <div className={styles.priceHeader}>
-                <h2>{currencyName}:</h2>
+                <h2>{currencyName}</h2>
                 <h2>{data[0]}</h2>
               </div>
               <div className={styles.priceRow}>
