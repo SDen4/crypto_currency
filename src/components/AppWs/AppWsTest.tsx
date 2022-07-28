@@ -69,16 +69,22 @@ const AppWsTest: React.FC<AppWsType> = ({ symbol }) => {
                 <h2>{currencyName}</h2>
               </div>
 
-              <ul className={styles.listTest}>
-                {(data as Array<any>)
-                  .filter((el) => el !== null)
-                  .map((el, i) => (
-                    <li key={Math.random()} className={styles.listItemTest}>
-                      <p>{fTitles[i]}</p>
-                      <p>{formatNumber(el, 5)}</p>
-                    </li>
-                  ))}
-              </ul>
+              <details>
+                <summary className={styles.summary}>
+                  Additional information
+                </summary>
+
+                <ul className={styles.listTest}>
+                  {(data as Array<any>)
+                    .filter((el) => el !== null)
+                    .map((el, i) => (
+                      <li key={Math.random()} className={styles.listItemTest}>
+                        <p>{fTitles[i]}</p>
+                        <p>{formatNumber(el, 5)}</p>
+                      </li>
+                    ))}
+                </ul>
+              </details>
             </div>
           </>
 

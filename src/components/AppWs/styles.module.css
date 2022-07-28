@@ -126,6 +126,7 @@
   overflow-y: scroll;
   list-style-type: none;
   padding: 0;
+  margin-top: 20px;
   box-sizing: border-box;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
@@ -141,13 +142,12 @@
   align-items: flex-start;
   width: 100%;
   margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px dotted #fff;
+  padding-top: 15px;
+  border-top: 1px dotted #fff;
 }
 
 .listItemTest:last-child {
   margin-bottom: 0;
-  border-bottom: unset;
 }
 
 .listItemTest p {
@@ -159,4 +159,22 @@
 .listItemTest p:first-child {
   margin-bottom: 5px;
   text-align: left;
+}
+
+.summary {
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+  width: fit-content;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .summary:hover {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+  }
 }
