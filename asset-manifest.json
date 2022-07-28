@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/crypto_currency/static/css/main.aa8f3fec.css",
-    "main.js": "/crypto_currency/static/js/main.3ab5adf6.js",
-    "static/css/841.0bd4317d.chunk.css": "/crypto_currency/static/css/841.0bd4317d.chunk.css",
-    "static/js/841.45190be5.chunk.js": "/crypto_currency/static/js/841.45190be5.chunk.js",
+    "main.css": "/crypto_currency/static/css/main.fb3709f5.css",
+    "main.js": "/crypto_currency/static/js/main.db0e62c1.js",
+    "static/css/841.9318dee2.chunk.css": "/crypto_currency/static/css/841.9318dee2.chunk.css",
+    "static/js/841.2910d53f.chunk.js": "/crypto_currency/static/js/841.2910d53f.chunk.js",
     "static/css/421.7aa6a2f7.chunk.css": "/crypto_currency/static/css/421.7aa6a2f7.chunk.css",
     "static/js/421.2c9d4da8.chunk.js": "/crypto_currency/static/js/421.2c9d4da8.chunk.js",
     "index.html": "/crypto_currency/index.html",
-    "main.aa8f3fec.css.map": "/crypto_currency/static/css/main.aa8f3fec.css.map",
-    "main.3ab5adf6.js.map": "/crypto_currency/static/js/main.3ab5adf6.js.map",
-    "841.0bd4317d.chunk.css.map": "/crypto_currency/static/css/841.0bd4317d.chunk.css.map",
-    "841.45190be5.chunk.js.map": "/crypto_currency/static/js/841.45190be5.chunk.js.map",
+    "main.fb3709f5.css.map": "/crypto_currency/static/css/main.fb3709f5.css.map",
+    "main.db0e62c1.js.map": "/crypto_currency/static/js/main.db0e62c1.js.map",
+    "841.9318dee2.chunk.css.map": "/crypto_currency/static/css/841.9318dee2.chunk.css.map",
+    "841.2910d53f.chunk.js.map": "/crypto_currency/static/js/841.2910d53f.chunk.js.map",
     "421.7aa6a2f7.chunk.css.map": "/crypto_currency/static/css/421.7aa6a2f7.chunk.css.map",
     "421.2c9d4da8.chunk.js.map": "/crypto_currency/static/js/421.2c9d4da8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa8f3fec.css",
-    "static/js/main.3ab5adf6.js"
+    "static/css/main.fb3709f5.css",
+    "static/js/main.db0e62c1.js"
   ]
 }

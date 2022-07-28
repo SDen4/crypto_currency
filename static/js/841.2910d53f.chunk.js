@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcrypto_currency=self.webpackChunkcrypto_currency||[]).push([[841],{841:function(r,s,e){e.r(s),e.d(s,{default:function(){return u}});e(791);var c="styles_arrowsContainer__1a7ob",n="styles_arrowOne__aTrng",a="styles_arrowTwo__Nq8Pc",t=e(184),u=function(){return(0,t.jsxs)("div",{className:c,children:[(0,t.jsx)("div",{className:n}),(0,t.jsx)("div",{className:a})]})}}}]);
+//# sourceMappingURL=841.2910d53f.chunk.js.map
