@@ -1,6 +1,7 @@
 import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
 
 import AppWs from '../AppWs';
+import AppWsTest from '../AppWs/AppWsTest';
 
 import { symbols } from '../../constant/symbols';
 
@@ -49,13 +50,13 @@ const Slider: React.FC = () => {
     if (
       (start > end && slide >= symbols.length - 1) ||
       (start < end && slide <= 0) ||
-      Math.abs(start - end) < 30
+      Math.abs(start - end) < 50
     )
       return;
 
-    if (start - end > 30) {
+    if (start - end > 50) {
       setSlide((prev) => prev + 1);
-    } else if (start - end < 30) {
+    } else if (start - end < 50) {
       setSlide((prev) => prev - 1);
     }
   };
@@ -93,7 +94,11 @@ const Slider: React.FC = () => {
         >
           {symbols.map((el, i) => (
             <li className={styles.listItem} key={el}>
-              <AppWs symbol={symbols[i]} />
+              {el[0] === 't' ? (
+                <AppWs symbol={symbols[i]} />
+              ) : (
+                <AppWsTest symbol={symbols[i]} />
+              )}
             </li>
           ))}
         </ul>

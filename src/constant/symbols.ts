@@ -5,4 +5,6 @@ export const symbols: SymbolsType[] = [
   'tBTCEUR',
   'tETHUSD',
   'tETHEUR',
+  'fBTC',
+  'fUSD',
 ];
