@@ -1,7 +1,1 @@
-export type SymbolsType =
-  | 'tBTCUSD'
-  | 'tBTCEUR'
-  | 'tETHUSD'
-  | 'tETHEUR'
-  | 'fBTC'
-  | 'fUSD';
+export type SymbolsType = 'tBTCUSD' | 'tBTCEUR' | 'tETHUSD' | 'tETHEUR';

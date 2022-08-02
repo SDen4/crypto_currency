@@ -1,7 +1,6 @@
 import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
 
 import AppWs from '../AppWs';
-import AppWsTest from '../AppWs/AppWsTest';
 
 import { symbols } from '../../constant/symbols';
 
@@ -94,11 +93,7 @@ const Slider: React.FC = () => {
         >
           {symbols.map((el, i) => (
             <li className={styles.listItem} key={el}>
-              {el[0] === 't' ? (
-                <AppWs symbol={symbols[i]} />
-              ) : (
-                <AppWsTest symbol={symbols[i]} />
-              )}
+              <AppWs symbol={symbols[i]} />
             </li>
           ))}
         </ul>
