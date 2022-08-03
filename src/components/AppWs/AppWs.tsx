@@ -1,4 +1,11 @@
-import React, { useState, useRef, useEffect, useCallback, memo } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  memo,
+  useMemo,
+} from 'react';
 
 import AddInfo from '../AddInfo';
 
@@ -13,7 +20,10 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
   const [isDisconnect, setIsDisconnect] = useState<boolean>(false);
   const ws: any = useRef(null);
 
-  const currencyName: string = `${symbol.slice(1, 4)}/${symbol.slice(4)}`;
+  const currencyName: string = useMemo(
+    () => `${symbol.slice(1, 4)}/${symbol.slice(4)}`,
+    [symbol],
+  );
 
   const gettingData = useCallback(() => {
     if (!ws.current) return;
@@ -31,11 +41,15 @@ const AppWs: React.FC<AppWsType> = ({ symbol }) => {
     };
   }, [isDisconnect]);
 
-  let msg = JSON.stringify({
-    event: 'subscribe',
-    channel: 'ticker',
-    symbol,
-  });
+  let msg = useMemo(
+    () =>
+      JSON.stringify({
+        event: 'subscribe',
+        channel: 'ticker',
+        symbol,
+      }),
+    [symbol],
+  );
 
   useEffect(() => {
     if (!isDisconnect) {
