@@ -1,14 +1,14 @@
 import React, { memo } from 'react';
 
-import { SliderButtonType } from './types';
-
 import styles from './styles.module.css';
 
-const SliderButton: React.FC<SliderButtonType> = ({
-  left,
-  onClick,
-  disabled,
-}) => {
+interface IProps {
+  onClick: () => void;
+  left?: boolean;
+  disabled?: boolean;
+}
+
+const SliderButton: React.FC<IProps> = ({ left, onClick, disabled }) => {
   return (
     <button
       type="button"

@@ -1,10 +1,19 @@
 import React, { memo } from 'react';
 
-import { addInfoItemType, AddInfoType } from './types';
-
 import styles from './styles.module.css';
 
-const AddInfo: React.FC<AddInfoType> = ({ addInfo, data }) => {
+interface addInfoItemType {
+  title: string;
+  id: number;
+  fix: number;
+}
+
+interface IProps {
+  addInfo: addInfoItemType[];
+  data: number[];
+}
+
+const AddInfo: React.FC<IProps> = ({ addInfo, data }) => {
   return (
     <details>
       <summary className={styles.summary}>Additional information</summary>

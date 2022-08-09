@@ -11,11 +11,15 @@ import AddInfo from '../AddInfo';
 
 import { addInfo } from '../../constant/addInfo';
 
-import { AppWsType } from './types';
+import { SymbolsType } from '../../types';
 
 import styles from './styles.module.css';
 
-const AppWs: React.FC<AppWsType> = ({ symbol }) => {
+interface IProps {
+  symbol: SymbolsType;
+}
+
+const AppWs: React.FC<IProps> = ({ symbol }) => {
   const [data, setData] = useState(null);
   const [isDisconnect, setIsDisconnect] = useState<boolean>(false);
   const ws: any = useRef(null);
