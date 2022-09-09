@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
 
+import { formatNumber } from '../../utils/formatNumber';
+
 import styles from './styles.module.css';
 
 interface addInfoItemType {
@@ -22,7 +24,7 @@ export const AddInfo: React.FC<IProps> = memo(({ addInfo, data }) => {
         {addInfo.map((el: addInfoItemType) => (
           <div className={styles.priceRow} key={el.id}>
             <span>{el.title}:</span>
-            <p>{Number(data[el.id]).toFixed(el.fix)}</p>
+            <p>{formatNumber(Number(data[el.id]), el.fix)}</p>
           </div>
         ))}
       </div>

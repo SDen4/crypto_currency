@@ -9,6 +9,8 @@ import React, {
 
 import { AddInfo } from '../AddInfo';
 
+import { formatNumber } from '../../utils/formatNumber';
+
 import { addInfo } from '../../constants';
 
 import { SymbolsType } from '../../types';
@@ -81,7 +83,7 @@ export const AppWs: React.FC<{ symbol: SymbolsType }> = memo(({ symbol }) => {
             >
               <div className={styles.priceHeader}>
                 <h2>{currencyName}</h2>
-                <h2>{data[0]}</h2>
+                <h2>{formatNumber(data[0])}</h2>
               </div>
               <div className={styles.priceRow}>
                 <div className={styles.rowUnit}>
@@ -100,7 +102,7 @@ export const AppWs: React.FC<{ symbol: SymbolsType }> = memo(({ symbol }) => {
                       Number(data[5]) > 0 ? styles.textGreen : styles.textRed
                     }`}
                   >
-                    {Math.abs(Number(data[5]) * 100).toFixed(2)}%{' '}
+                    {formatNumber(Math.abs(Number(data[5]) * 100), 2, '%')}
                   </p>
                 </div>
                 <div className={styles.rowUnit}>

@@ -1,7 +1,6 @@
-const formatNumber = (number: number, max?: number) => {
-  return new Intl.NumberFormat('ru-RU', {
-    maximumSignificantDigits: max || 0,
+export const formatNumber = (number: number, max?: number, symbol?: string) => {
+  const formattedNumber = new Intl.NumberFormat('ru-RU', {
+    maximumFractionDigits: max || 0,
   }).format(number);
+  return `${formattedNumber}${symbol || ''}`;
 };
-
-export default formatNumber;
