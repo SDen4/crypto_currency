@@ -15,11 +15,7 @@ import { SymbolsType } from '../../types';
 
 import styles from './styles.module.css';
 
-interface IProps {
-  symbol: SymbolsType;
-}
-
-const AppWs: React.FC<IProps> = ({ symbol }) => {
+const AppWs: React.FC<{ symbol: SymbolsType }> = ({ symbol }) => {
   const [data, setData] = useState(null);
   const [isDisconnect, setIsDisconnect] = useState<boolean>(false);
   const ws: any = useRef(null);
