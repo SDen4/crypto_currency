@@ -1,1 +1,1 @@
-export { default } from './AppWs';
+export * from './AppWs';

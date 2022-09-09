@@ -7,15 +7,15 @@ import React, {
   useMemo,
 } from 'react';
 
-import AddInfo from '../AddInfo';
+import { AddInfo } from '../AddInfo';
 
-import { addInfo } from '../../constant/addInfo';
+import { addInfo } from '../../constants';
 
 import { SymbolsType } from '../../types';
 
 import styles from './styles.module.css';
 
-const AppWs: React.FC<{ symbol: SymbolsType }> = ({ symbol }) => {
+export const AppWs: React.FC<{ symbol: SymbolsType }> = memo(({ symbol }) => {
   const [data, setData] = useState(null);
   const [isDisconnect, setIsDisconnect] = useState<boolean>(false);
   const ws: any = useRef(null);
@@ -141,6 +141,4 @@ const AppWs: React.FC<{ symbol: SymbolsType }> = ({ symbol }) => {
       )}
     </>
   );
-};
-
-export default memo(AppWs);
+});

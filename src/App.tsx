@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from 'react';
 
-import Slider from './components/Slider';
+import { Slider } from './components/Slider';
 
 import styles from './App.module.css';
 

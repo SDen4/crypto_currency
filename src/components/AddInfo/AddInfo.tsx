@@ -13,7 +13,7 @@ interface IProps {
   data: number[];
 }
 
-const AddInfo: React.FC<IProps> = ({ addInfo, data }) => {
+export const AddInfo: React.FC<IProps> = memo(({ addInfo, data }) => {
   return (
     <details>
       <summary className={styles.summary}>Additional information</summary>
@@ -28,6 +28,4 @@ const AddInfo: React.FC<IProps> = ({ addInfo, data }) => {
       </div>
     </details>
   );
-};
-
-export default memo(AddInfo);
+});

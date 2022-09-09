@@ -1,14 +1,14 @@
 import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
 
-import AppWs from '../AppWs';
+import { AppWs } from '../AppWs';
 
-import { symbols } from '../../constant/symbols';
+import { symbols } from '../../constants';
 
 import styles from './styles.module.css';
 
 const LazySliderButton = React.lazy(() => import('../../ui/SliderButton'));
 
-const Slider: React.FC = () => {
+export const Slider: React.FC = () => {
   const [slide, setSlide] = useState<number>(0);
   const [screenSize, setScreenSize] = useState<number>(0);
 
@@ -112,5 +112,3 @@ const Slider: React.FC = () => {
     </section>
   );
 };
-
-export default Slider;
