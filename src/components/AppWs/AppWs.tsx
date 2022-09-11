@@ -73,9 +73,6 @@ export const AppWs: React.FC<{ symbol: SymbolsType }> = memo(({ symbol }) => {
     return () => ws.current.close();
   }, [ws, gettingData, msg, isDisconnect]);
 
-  // @ts-ignore
-  console.log(data?.[1], data?.[3]);
-
   const isBuy = Number(data?.[1]) < Number(data?.[3]);
 
   return (
