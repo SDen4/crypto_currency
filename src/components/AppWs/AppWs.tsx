@@ -73,6 +73,11 @@ export const AppWs: React.FC<{ symbol: SymbolsType }> = memo(({ symbol }) => {
     return () => ws.current.close();
   }, [ws, gettingData, msg, isDisconnect]);
 
+  // @ts-ignore
+  console.log(data?.[1], data?.[3]);
+
+  const isBuy = Number(data?.[1]) < Number(data?.[3]);
+
   return (
     <>
       {!!data ? (
@@ -107,20 +112,16 @@ export const AppWs: React.FC<{ symbol: SymbolsType }> = memo(({ symbol }) => {
                 </div>
                 <div className={styles.rowUnit}>
                   <span
-                    className={`${
-                      Number(data[1]) < Number(data[3])
-                        ? styles.textGreen
-                        : styles.textRed
-                    } ${styles.bold}`}
+                    className={`${isBuy ? styles.textGreen : styles.textRed} ${
+                      styles.bold
+                    }`}
                   >
-                    {Number(data[1]) < Number(data[3]) ? 'Buy' : 'Sell'}
+                    {isBuy ? 'Buy' : 'Sell'}
                   </span>
 
                   <div
                     className={`${styles.triangle} ${
-                      Number(data[1]) < Number(data[3])
-                        ? styles.triangleUp
-                        : styles.triangleDown
+                      isBuy ? styles.triangleUp : styles.triangleDown
                     }`}
                   />
                 </div>
