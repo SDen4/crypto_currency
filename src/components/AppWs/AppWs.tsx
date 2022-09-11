@@ -7,7 +7,7 @@ import React, {
   useMemo,
 } from 'react';
 
-import { AddInfo } from '../AddInfo';
+import { AddInfo } from '../AddInfo/AddInfo';
 
 import { formatNumber } from '../../utils/formatNumber';
 
