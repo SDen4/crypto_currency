@@ -1,10 +1,10 @@
 import React, { Suspense, useEffect, useState } from 'react';
 
-import { Slider } from './components/Slider';
+import { Slider } from './components/Slider/Slider';
 
 import styles from './App.module.css';
 
-const LazyInitHint = React.lazy(() => import('./components/InitHint'));
+const LazyInitHint = React.lazy(() => import('./components/InitHint/InitHint'));
 
 function App() {
   const [appHeight, setAppHeight] = useState<number>(0);
