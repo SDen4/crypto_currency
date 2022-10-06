@@ -23,9 +23,11 @@ function App() {
     if (window.innerWidth < 490) {
       setShowHint(true);
     }
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setShowHint(false);
     }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
   window.addEventListener('touchstart', () => setShowHint(false));
 
