@@ -10,7 +10,6 @@ import React, {
 import { AddInfo } from '../AddInfo/AddInfo';
 
 import { formatNumber } from '../../utils/formatNumber';
-import { stat } from '../../utils/stat';
 
 import { addInfo } from '../../constants';
 
@@ -29,9 +28,6 @@ export const AppWs: React.FC<{ symbol: SymbolsType }> = memo(({ symbol }) => {
   );
 
   const gettingData = useCallback(() => {
-    // statistic (test)
-    stat();
-
     if (!ws.current) return;
 
     ws.current.onmessage = (e: { data: string }) => {
