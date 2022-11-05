@@ -5,7 +5,6 @@ import { AppWs } from '../AppWs/AppWs';
 import { symbols } from '../../constants';
 
 import styles from './styles.module.css';
-import { stat } from '../../utils/stat';
 
 const LazySliderButton = React.lazy(
   () => import('../../ui/SliderButton/SliderButton'),
@@ -29,9 +28,6 @@ export const Slider: React.FC = () => {
   }, [screenSize]);
 
   const buttonOnClick = (direction: 'right' | 'left') => {
-    // statistic (test)
-    stat();
-
     if (
       (direction === 'right' && slide >= symbols.length - 1) ||
       (direction === 'left' && slide <= 0)
