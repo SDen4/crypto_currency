@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState } from 'react';
 
 import { Slider } from './components/Slider/Slider';
+import { stat } from './utils/stat';
 
 import styles from './App.module.css';
 
@@ -30,6 +31,9 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
   window.addEventListener('touchstart', () => setShowHint(false));
+
+  // statistic (test)
+  stat();
 
   return (
     <div className={styles.App} style={{ minHeight: appHeight }}>
