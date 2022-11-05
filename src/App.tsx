@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     // statistic (test)
-    const data = stat();
+    stat();
 
     setAppHeight(window.innerHeight);
   }, []);
