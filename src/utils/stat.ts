@@ -15,7 +15,11 @@ export const stat = async () => {
   };
 
   const data = fetch('https://ovz1.j34847422.m61kn.vps.myjino.ru?test=test', {
-    headers: { 'Content-Type': ' text/plain' },
+    headers: {
+      'Content-Type': ' text/plain',
+      'Access-Control-Allow-Origin': '*',
+    },
+    mode: 'no-cors',
   }).then((res) => res.text());
 
   return data;
