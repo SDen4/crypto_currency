@@ -1,7 +1,6 @@
 import React, { Suspense, useEffect, useState } from 'react';
 
 import { Slider } from './components/Slider/Slider';
-import { stat } from './utils/stat';
 
 import styles from './App.module.css';
 
@@ -10,12 +9,7 @@ const LazyInitHint = React.lazy(() => import('./components/InitHint/InitHint'));
 function App() {
   const [appHeight, setAppHeight] = useState<number>(0);
 
-  useEffect(() => {
-    // statistic (test)
-    stat();
-
-    setAppHeight(window.innerHeight);
-  }, []);
+  useEffect(() => setAppHeight(window.innerHeight), []);
 
   // resize
   window.addEventListener(
