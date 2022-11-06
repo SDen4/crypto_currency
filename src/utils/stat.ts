@@ -5,7 +5,8 @@ export const stat = async () => {
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     // credentials: 'same-origin', // include, *same-origin, omit
     headers: {
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
+      'Content-Type': ' text/plain',
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     // redirect: 'follow', // manual, *follow, error
@@ -14,7 +15,7 @@ export const stat = async () => {
   };
 
   const data = fetch(
-    'https://ovz1.j34847422.m61kn.vps.myjino.ru?test=test',
+    'http://ovz1.j34847422.m61kn.vps.myjino.ru?test=test',
     params,
   ).then((res) => res.json());
 
