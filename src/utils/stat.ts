@@ -14,7 +14,7 @@ export const stat = async () => {
   };
 
   const data = fetch(
-    'http://ovz1.j34847422.m61kn.vps.myjino.ru?test=test',
+    'https://ovz1.j34847422.m61kn.vps.myjino.ru?test=test',
     params,
   ).then((res) => res.json());
 
