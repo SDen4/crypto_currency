@@ -4,7 +4,14 @@ import { symbols } from '../../constants';
 
 import styles from './styles.module.css';
 
-export const SliderDots: React.FC<{ slide: number }> = ({ slide }) => {
+interface IProps {
+  slide: number;
+  onDotClick: (i: number) => void;
+}
+
+export const SliderDots: React.FC<IProps> = ({ slide, onDotClick }) => {
+  const onClickHandler = (i: number) => onDotClick(i);
+
   return (
     <div className={styles.dotsWrapper}>
       {symbols.map((el, i) => {
@@ -12,6 +19,7 @@ export const SliderDots: React.FC<{ slide: number }> = ({ slide }) => {
           <div
             className={`${styles.dot} ${i === slide ? styles.dotActive : ''}`}
             key={el}
+            onClick={() => onClickHandler(i)}
           />
         );
       })}

@@ -63,6 +63,11 @@ export const Slider: React.FC = () => {
     }
   };
 
+  const onDotClick = (i: number) => {
+    if (i === slide) return;
+    setSlide(i);
+  };
+
   return (
     <section className={styles.sliderContainer}>
       {screenSize > 490 && (
@@ -101,7 +106,7 @@ export const Slider: React.FC = () => {
           ))}
         </ul>
 
-        <SliderDots slide={slide} />
+        <SliderDots slide={slide} onDotClick={onDotClick} />
       </div>
 
       {screenSize > 490 && (

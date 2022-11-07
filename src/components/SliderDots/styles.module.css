@@ -11,6 +11,7 @@
   background-color: rgb(58, 57, 57);
   margin-right: 18px;
   transition: 0.8s;
+  cursor: pointer;
 }
 
 .dot:last-child {
@@ -19,4 +20,5 @@
 
 .dotActive {
   background-color: #fff;
+  cursor: default;
 }
