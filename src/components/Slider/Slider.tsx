@@ -1,6 +1,7 @@
 import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
 
 import { AppWs } from '../AppWs/AppWs';
+import { SliderDots } from '../SliderDots/SliderDots';
 
 import { symbols } from '../../constants';
 
@@ -99,6 +100,8 @@ export const Slider: React.FC = () => {
             </li>
           ))}
         </ul>
+
+        <SliderDots slide={slide} />
       </div>
 
       {screenSize > 490 && (

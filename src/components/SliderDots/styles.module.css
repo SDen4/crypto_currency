@@ -1,0 +1,22 @@
+.dotsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(58, 57, 57);
+  margin-right: 18px;
+  transition: 0.8s;
+}
+
+.dot:last-child {
+  margin-right: 0;
+}
+
+.dotActive {
+  background-color: #fff;
+}
