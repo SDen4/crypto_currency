@@ -20,4 +20,12 @@ export const symbols: SymbolsType[] = [
   'tBTCEUR',
   'tETHUSD',
   'tETHEUR',
+  'tLTCUSD',
+  'tSOLUSD',
+  'tXRPUSD',
+  'tADAUSD',
+  'tAPTUSD',
+  'tEOSUSD',
+  'tETCUSD',
+  'tFILUSD',
 ];
