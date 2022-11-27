@@ -7,7 +7,7 @@ import styles from './styles.module.css';
 interface addInfoItemType {
   title: string;
   id: number;
-  fix: number;
+  fix?: number;
 }
 
 interface IProps {
