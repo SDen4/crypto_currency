@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import { formatNumber } from '../../utils/formatNumber';
 
@@ -15,7 +15,7 @@ interface IProps {
   data: number[];
 }
 
-export const AddInfo: React.FC<IProps> = memo(({ addInfo, data }) => {
+export const AddInfo: React.FC<IProps> = ({ addInfo, data }) => {
   return (
     <details>
       <summary className={styles.summary}>Additional information</summary>
@@ -30,4 +30,4 @@ export const AddInfo: React.FC<IProps> = memo(({ addInfo, data }) => {
       </div>
     </details>
   );
-});
+};
