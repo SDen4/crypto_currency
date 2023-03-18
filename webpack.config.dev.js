@@ -1,5 +1,4 @@
 /* eslint-disable */
-const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
@@ -24,10 +23,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.css'],
     plugins: [new TsconfigPathsPlugin({ baseUrl: 'src' })],
   },
-  optimization: {
-    minimize: false,
-    minimizer: [new TerserPlugin({ extractComments: false })],
-  },
+  optimization: { minimize: false },
   module: {
     rules: [
       {
