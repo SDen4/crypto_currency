@@ -1,9 +1,8 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const path = require('path');
 
 delete process.env.TS_NODE_PROJECT;
 
@@ -46,16 +45,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/,
-        exclude: /node_modules/,
-        use: [{ loader: 'svg-url-loader', options: { limit: 10000 } }],
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        loader: 'file-loader',
-        options: { name: '[name].[ext]' },
-      },
-      {
         test: /\.css$/i,
         use: [
           { loader: 'style-loader' },
@@ -65,7 +54,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({ template: './public/index.html' }),
     new CopyPlugin({
       patterns: [
@@ -77,7 +65,6 @@ module.exports = {
           from: './public/favicon.ico',
           to: path.resolve(__dirname, './build'),
         },
-        // { from: './src/images', to: './dist/images' },
       ],
     }),
   ],
