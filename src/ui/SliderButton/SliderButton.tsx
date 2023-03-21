@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.css';
 
@@ -8,7 +8,7 @@ interface IProps {
   disabled?: boolean;
 }
 
-const SliderButton: React.FC<IProps> = ({ left, onClick, disabled }) => {
+const SliderButton: FC<IProps> = ({ left, onClick, disabled }) => {
   return (
     <button
       type="button"
@@ -21,4 +21,4 @@ const SliderButton: React.FC<IProps> = ({ left, onClick, disabled }) => {
   );
 };
 
-export default memo(SliderButton);
+export default SliderButton;

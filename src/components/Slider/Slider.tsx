@@ -1,4 +1,4 @@
-import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
+import React, { useState, TouchEvent, useEffect, Suspense, FC } from 'react';
 
 import { AppWs } from '../AppWs/AppWs';
 import { SliderDots } from '../SliderDots/SliderDots';
@@ -11,9 +11,9 @@ const LazySliderButton = React.lazy(
   () => import('../../ui/SliderButton/SliderButton'),
 );
 
-export const Slider: React.FC = () => {
-  const [slide, setSlide] = useState<number>(0);
-  const [screenSize, setScreenSize] = useState<number>(0);
+export const Slider: FC = () => {
+  const [slide, setSlide] = useState(0);
+  const [screenSize, setScreenSize] = useState(0);
 
   useEffect(() => {
     setScreenSize(window.innerWidth);
@@ -42,7 +42,7 @@ export const Slider: React.FC = () => {
     }
   };
 
-  const [start, setStart] = useState<number>(0);
+  const [start, setStart] = useState(0);
   const onTouchStart = (event: TouchEvent<HTMLDivElement>) => {
     setStart(event.changedTouches[0].clientX);
   };

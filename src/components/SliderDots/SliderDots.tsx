@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { symbols } from '../../constants';
 
@@ -9,7 +9,7 @@ interface IProps {
   onDotClick: (i: number) => void;
 }
 
-export const SliderDots: React.FC<IProps> = ({ slide, onDotClick }) => {
+export const SliderDots: FC<IProps> = ({ slide, onDotClick }) => {
   const onClickHandler = (i: number) => onDotClick(i);
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { formatNumber } from '../../utils/formatNumber';
 
@@ -15,13 +15,13 @@ interface IProps {
   data: number[];
 }
 
-export const AddInfo: React.FC<IProps> = ({ addInfo, data }) => {
+export const AddInfo: FC<IProps> = ({ addInfo, data }) => {
   return (
     <details>
       <summary className={styles.summary}>Additional information</summary>
 
       <div className={styles.addContainer}>
-        {addInfo.map((el: addInfoItemType) => (
+        {addInfo.map((el) => (
           <div className={styles.priceRow} key={el.id}>
             <span>{el.title}:</span>
             <p>{formatNumber(Number(data[el.id]), el.fix)}</p>

@@ -3,8 +3,8 @@ import React, {
   useRef,
   useEffect,
   useCallback,
-  memo,
   useMemo,
+  FC,
 } from 'react';
 
 import { AddInfo } from '../AddInfo/AddInfo';
@@ -17,9 +17,9 @@ import { SymbolsType } from '../../types';
 
 import styles from './styles.module.css';
 
-export const AppWs: React.FC<{ symbol: SymbolsType }> = memo(({ symbol }) => {
+export const AppWs: FC<{ symbol: SymbolsType }> = ({ symbol }) => {
   const [data, setData] = useState(null);
-  const [isDisconnect, setIsDisconnect] = useState<boolean>(false);
+  const [isDisconnect, setIsDisconnect] = useState(false);
   const ws: any = useRef(null);
 
   const currencyName: string = useMemo(
@@ -141,4 +141,4 @@ export const AppWs: React.FC<{ symbol: SymbolsType }> = memo(({ symbol }) => {
       )}
     </>
   );
-});
+};

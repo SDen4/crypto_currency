@@ -7,7 +7,7 @@ import styles from './App.module.css';
 const LazyInitHint = React.lazy(() => import('./components/InitHint/InitHint'));
 
 function App() {
-  const [appHeight, setAppHeight] = useState<number>(0);
+  const [appHeight, setAppHeight] = useState(0);
 
   useEffect(() => setAppHeight(window.innerHeight), []);
 
@@ -19,7 +19,7 @@ function App() {
   );
 
   // show initHint
-  let [showHint, setShowHint] = useState<boolean>(false);
+  let [showHint, setShowHint] = useState(false);
   useEffect(() => {
     if (window.innerWidth < 490) {
       setShowHint(true);
@@ -33,7 +33,7 @@ function App() {
   window.addEventListener('touchstart', () => setShowHint(false));
 
   return (
-    <div className={styles.App} style={{ minHeight: appHeight }}>
+    <div className={styles.app} style={{ minHeight: appHeight }}>
       <header className={styles.appHeader}>
         <h1>Crypto Currency</h1>
       </header>
