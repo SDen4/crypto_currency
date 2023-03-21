@@ -1,9 +1,7 @@
-/* eslint-disable */
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
-const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
@@ -67,7 +65,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new Dotenv({ path: './.env' }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({ template: './public/index.html' }),
     new CopyPlugin({

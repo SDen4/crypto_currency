@@ -1,7 +1,4 @@
-/* eslint-disable */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const Dotenv = require('dotenv-webpack');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 delete process.env.TS_NODE_PROJECT;
@@ -62,8 +59,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new Dotenv({ path: './.env.development' }),
-    new HtmlWebpackPlugin({ template: './public/index.html' }),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: './public/index.html' })],
 };
