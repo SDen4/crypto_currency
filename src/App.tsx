@@ -11,6 +11,8 @@ function App() {
 
   useEffect(() => setAppHeight(window.innerHeight), []);
 
+  console.log(window.location.href);
+
   // resize
   window.addEventListener(
     'resize',
