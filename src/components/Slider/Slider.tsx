@@ -1,4 +1,5 @@
-import React, { useState, TouchEvent, useEffect, Suspense, FC } from 'react';
+import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
+import type { FC } from 'react';
 
 import { AppWs } from '../AppWs/AppWs';
 import { SliderDots } from '../SliderDots/SliderDots';

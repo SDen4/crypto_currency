@@ -1,4 +1,4 @@
-import { SymbolsType } from '../types';
+import type { SymbolsType } from '../types';
 
 export const addInfo = [
   { title: 'Price of the last trade', id: 6 },

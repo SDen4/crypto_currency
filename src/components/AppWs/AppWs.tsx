@@ -13,7 +13,7 @@ import { formatNumber } from '../../utils/formatNumber';
 
 import { addInfo } from '../../constants';
 
-import { SymbolsType } from '../../types';
+import type { SymbolsType } from '../../types';
 
 import styles from './styles.module.css';
 
