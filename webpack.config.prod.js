@@ -4,8 +4,6 @@ const CopyPlugin = require('copy-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 
-delete process.env.TS_NODE_PROJECT;
-
 module.exports = {
   entry: './src/index',
   mode: 'production',

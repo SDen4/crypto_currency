@@ -1,8 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
-delete process.env.TS_NODE_PROJECT;
-
 module.exports = {
   entry: './src/index',
   devtool: 'source-map',
