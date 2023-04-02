@@ -19,7 +19,7 @@ interface IProps {
 export const AddInfo: FC<IProps> = ({ addInfo, data }) => {
   return (
     <details>
-      <summary className={styles.summary}>Additional information</summary>
+      <summary className={styles.summary}>Additional info</summary>
 
       <div className={styles.addContainer}>
         {addInfo.map((el) => (
