@@ -1,5 +1,3 @@
-import React, { ComponentProps } from 'react';
-
 import cl from './styles.module.css';
 
 export const BtcBlockInfoButton = ({

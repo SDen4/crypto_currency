@@ -1,11 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo,
-  FC,
-} from 'react';
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 
 import { AddInfo } from '../AddInfo/AddInfo';
 
@@ -15,9 +8,9 @@ import { addInfo } from '../../constants';
 
 import type { SymbolsType } from '../../types';
 
-import styles from './styles.module.css';
+import cl from './styles.module.css';
 
-export const AppWs: FC<{ symbol: SymbolsType }> = ({ symbol }) => {
+export const AppWs = ({ symbol }: { symbol: SymbolsType }) => {
   const [data, setData] = useState(null);
   const [isDisconnect, setIsDisconnect] = useState(false);
   const ws: any = useRef(null);
@@ -80,45 +73,41 @@ export const AppWs: FC<{ symbol: SymbolsType }> = ({ symbol }) => {
       {!!data ? (
         <>
           <>
-            <div
-              className={`${styles.priceBox} ${isDisconnect && styles.paused}`}
-            >
-              <div className={styles.priceHeader}>
+            <div className={`${cl.priceBox} ${isDisconnect && cl.paused}`}>
+              <div className={cl.priceHeader}>
                 <h2>{currencyName}</h2>
                 <h2>{formatNumber(data[0])}</h2>
               </div>
-              <div className={styles.priceRow}>
-                <div className={styles.rowUnit}>
+              <div className={cl.priceRow}>
+                <div className={cl.rowUnit}>
                   <span>24h: </span>
 
                   <div
-                    className={`${styles.triangle} ${
-                      Number(data[4]) > 0
-                        ? styles.triangleUp
-                        : styles.triangleDown
+                    className={`${cl.triangle} ${
+                      Number(data[4]) > 0 ? cl.triangleUp : cl.triangleDown
                     }`}
                   />
 
                   <p
-                    className={`${styles.text} ${
-                      Number(data[5]) > 0 ? styles.textGreen : styles.textRed
+                    className={`${cl.text} ${
+                      Number(data[5]) > 0 ? cl.textGreen : cl.textRed
                     }`}
                   >
                     {formatNumber(Math.abs(Number(data[5]) * 100), 2, '%')}
                   </p>
                 </div>
-                <div className={styles.rowUnit}>
+                <div className={cl.rowUnit}>
                   <span
-                    className={`${isBuy ? styles.textGreen : styles.textRed} ${
-                      styles.bold
+                    className={`${isBuy ? cl.textGreen : cl.textRed} ${
+                      cl.bold
                     }`}
                   >
                     {isBuy ? 'Buy' : 'Sell'}
                   </span>
 
                   <div
-                    className={`${styles.triangle} ${
-                      isBuy ? styles.triangleUp : styles.triangleDown
+                    className={`${cl.triangle} ${
+                      isBuy ? cl.triangleUp : cl.triangleDown
                     }`}
                   />
                 </div>
@@ -132,8 +121,8 @@ export const AppWs: FC<{ symbol: SymbolsType }> = ({ symbol }) => {
         </>
       ) : (
         <div
-          className={`${styles.priceBox} ${styles.noData} ${
-            isDisconnect && styles.noConnection
+          className={`${cl.priceBox} ${cl.noData} ${
+            isDisconnect && cl.noConnection
           }`}
         >
           No data...

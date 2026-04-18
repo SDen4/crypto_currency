@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "lib": [ "dom","dom.iterable","esnext" ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -9,7 +9,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "ES6",
+    "module": "es2020",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -17,5 +17,5 @@
     "jsx": "react-jsx"
   },
   "include": ["src", "jest.config.ts"],
-  "exclude": ["node_modules", "__tests__"],
+  "exclude": ["node_modules", "__tests__"]
 }

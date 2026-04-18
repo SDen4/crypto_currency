@@ -1,16 +1,16 @@
-import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
+import { useState, TouchEvent, useEffect, Suspense, lazy } from 'react';
 
 import { AppWs } from '../AppWs/AppWs';
 import { SliderDots } from '../SliderDots/SliderDots';
 
-import { symbols } from '../../constants';
-
-import styles from './styles.module.css';
 import { BtcBlockInfoButton } from '../BtcBlockInfoButton';
 import { Modal } from '../Modal';
 import { BtcBlockInfoContent } from '../BtcBlockInfoContent';
 
-const LazySliderButton = React.lazy(
+import { symbols } from '../../constants';
+import cl from './styles.module.css';
+
+const LazySliderButton = lazy(
   () => import('../../ui/SliderButton/SliderButton'),
 );
 
@@ -75,10 +75,10 @@ export const Slider = () => {
   };
 
   return (
-    <div className={styles.sliderWrapper}>
-      <section className={styles.sliderContainer}>
+    <div className={cl.sliderWrapper}>
+      <section className={cl.sliderContainer}>
         {screenSize > 490 && (
-          <div className={styles.buttonWrapper}>
+          <div className={cl.buttonWrapper}>
             <Suspense fallback={<p>loading...</p>}>
               <LazySliderButton
                 left
@@ -90,12 +90,12 @@ export const Slider = () => {
         )}
 
         <div
-          className={styles.sliderWindow}
+          className={cl.sliderWindow}
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
           <ul
-            className={styles.list}
+            className={cl.list}
             style={
               screenSize < 490
                 ? {
@@ -107,7 +107,7 @@ export const Slider = () => {
             }
           >
             {symbols.map((el, i) => (
-              <li className={styles.listItem} key={el}>
+              <li className={cl.listItem} key={el}>
                 <AppWs symbol={symbols[i]} />
               </li>
             ))}
@@ -117,7 +117,7 @@ export const Slider = () => {
         </div>
 
         {screenSize > 490 && (
-          <div className={styles.buttonWrapper}>
+          <div className={cl.buttonWrapper}>
             <Suspense fallback={<p>loading...</p>}>
               <LazySliderButton
                 onClick={() => buttonOnClick('right')}

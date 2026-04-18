@@ -1,9 +1,6 @@
-import React from 'react';
-import type { FC } from 'react';
-
 import { formatNumber } from '../../utils/formatNumber';
 
-import styles from './styles.module.css';
+import cl from './styles.module.css';
 
 interface addInfoItemType {
   title: string;
@@ -16,14 +13,14 @@ interface IProps {
   data: number[];
 }
 
-export const AddInfo: FC<IProps> = ({ addInfo, data }) => {
+export const AddInfo = ({ addInfo, data }: IProps) => {
   return (
     <details>
-      <summary className={styles.summary}>Additional info</summary>
+      <summary className={cl.summary}>Additional info</summary>
 
-      <div className={styles.addContainer}>
+      <div className={cl.addContainer}>
         {addInfo.map((el) => (
-          <div className={styles.priceRow} key={el.id}>
+          <div className={cl.priceRow} key={el.id}>
             <span>{el.title}:</span>
             <p>{formatNumber(Number(data[el.id]), el.fix)}</p>
           </div>

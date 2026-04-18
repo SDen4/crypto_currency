@@ -1,7 +1,4 @@
-import React from 'react';
-import type { FC } from 'react';
-
-import styles from './styles.module.css';
+import cl from './styles.module.css';
 
 interface IProps {
   onClick: () => void;
@@ -9,12 +6,12 @@ interface IProps {
   disabled?: boolean;
 }
 
-const SliderButton: FC<IProps> = ({ left, onClick, disabled }) => {
+const SliderButton = ({ left, onClick, disabled }: IProps) => {
   return (
     <button
       type="button"
-      className={`${styles.button} ${left && styles.buttonLeft} ${
-        disabled && styles.disabled
+      className={`${cl.button} ${left && cl.buttonLeft} ${
+        disabled && cl.disabled
       }`}
       onClick={onClick}
       aria-label={left ? 'Left' : 'Right'}

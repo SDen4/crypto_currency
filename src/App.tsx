@@ -1,10 +1,10 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 
 import { Slider } from './components/Slider/Slider';
 
-import styles from './App.module.css';
+import cl from './App.module.css';
 
-const LazyInitHint = React.lazy(() => import('./components/InitHint/InitHint'));
+const LazyInitHint = lazy(() => import('./components/InitHint/InitHint'));
 
 function App() {
   const [appHeight, setAppHeight] = useState(0);
@@ -33,15 +33,15 @@ function App() {
   window.addEventListener('touchstart', () => setShowHint(false));
 
   return (
-    <div className={styles.app} style={{ minHeight: appHeight }}>
-      <header className={styles.appHeader}>
+    <div className={cl.app} style={{ minHeight: appHeight }}>
+      <header className={cl.appHeader}>
         <h1>Crypto Currency</h1>
       </header>
 
       <Slider />
 
       {showHint && (
-        <div className={styles.initHintWrapper}>
+        <div className={cl.initHintWrapper}>
           <Suspense fallback={<p>Loading...</p>}>
             <LazyInitHint />
           </Suspense>

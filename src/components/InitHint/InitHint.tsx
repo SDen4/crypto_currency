@@ -1,14 +1,11 @@
-import React from 'react';
-import type { FC } from 'react';
+import cl from './styles.module.css';
 
-import styles from './styles.module.css';
-
-const InitHint: FC = () => {
+const InitHint = () => {
   return (
-    <div className={styles.arrowsContainer}>
+    <div className={cl.arrowsContainer}>
       <p>Swipe left to see more</p>
-      <div className={styles.arrowOne} />
-      <div className={styles.arrowTwo} />
+      <div className={cl.arrowOne} />
+      <div className={cl.arrowTwo} />
     </div>
   );
 };
