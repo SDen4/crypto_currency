@@ -12,10 +12,17 @@ Real time crypto currency prices update
 
 ### Stack
 
-- React
+- React 19
 - Typescript
 - CSS
 - gh-pages
 - websockets
+- axios
 
 ---
+
+### Deploy
+
+`npm run build`
+
+`npm run deploy`
