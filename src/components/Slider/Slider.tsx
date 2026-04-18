@@ -1,5 +1,4 @@
 import React, { useState, TouchEvent, useEffect, Suspense } from 'react';
-import type { FC } from 'react';
 
 import { AppWs } from '../AppWs/AppWs';
 import { SliderDots } from '../SliderDots/SliderDots';
@@ -7,14 +6,20 @@ import { SliderDots } from '../SliderDots/SliderDots';
 import { symbols } from '../../constants';
 
 import styles from './styles.module.css';
+import { BtcBlockInfoButton } from '../BtcBlockInfoButton';
+import { Modal } from '../Modal';
+import { BtcBlockInfoContent } from '../BtcBlockInfoContent';
 
 const LazySliderButton = React.lazy(
   () => import('../../ui/SliderButton/SliderButton'),
 );
 
-export const Slider: FC = () => {
+export const Slider = () => {
   const [slide, setSlide] = useState(0);
   const [screenSize, setScreenSize] = useState(0);
+  const [isModal, setIsModal] = useState(false);
+
+  const isBtcSlide = slide === 0;
 
   useEffect(() => {
     setScreenSize(window.innerWidth);
@@ -70,56 +75,66 @@ export const Slider: FC = () => {
   };
 
   return (
-    <section className={styles.sliderContainer}>
-      {screenSize > 490 && (
-        <div className={styles.buttonWrapper}>
-          <Suspense fallback={<p>loading...</p>}>
-            <LazySliderButton
-              left
-              onClick={() => buttonOnClick('left')}
-              disabled={slide === 0}
-            />
-          </Suspense>
-        </div>
-      )}
+    <div className={styles.sliderWrapper}>
+      <section className={styles.sliderContainer}>
+        {screenSize > 490 && (
+          <div className={styles.buttonWrapper}>
+            <Suspense fallback={<p>loading...</p>}>
+              <LazySliderButton
+                left
+                onClick={() => buttonOnClick('left')}
+                disabled={slide === 0}
+              />
+            </Suspense>
+          </div>
+        )}
 
-      <div
-        className={styles.sliderWindow}
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
-      >
-        <ul
-          className={styles.list}
-          style={
-            screenSize < 490
-              ? {
-                  transform: `translateX(calc(-${slide * 95}vw - ${
-                    slide * 5
-                  }px))`,
-                }
-              : { transform: `translateX(-${slide * 340}px)` }
-          }
+        <div
+          className={styles.sliderWindow}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
-          {symbols.map((el, i) => (
-            <li className={styles.listItem} key={el}>
-              <AppWs symbol={symbols[i]} />
-            </li>
-          ))}
-        </ul>
+          <ul
+            className={styles.list}
+            style={
+              screenSize < 490
+                ? {
+                    transform: `translateX(calc(-${slide * 95}vw - ${
+                      slide * 5
+                    }px))`,
+                  }
+                : { transform: `translateX(-${slide * 340}px)` }
+            }
+          >
+            {symbols.map((el, i) => (
+              <li className={styles.listItem} key={el}>
+                <AppWs symbol={symbols[i]} />
+              </li>
+            ))}
+          </ul>
 
-        <SliderDots slide={slide} onDotClick={onDotClick} />
-      </div>
-
-      {screenSize > 490 && (
-        <div className={styles.buttonWrapper}>
-          <Suspense fallback={<p>loading...</p>}>
-            <LazySliderButton
-              onClick={() => buttonOnClick('right')}
-              disabled={slide === symbols.length - 1}
-            />
-          </Suspense>
+          <SliderDots slide={slide} onDotClick={onDotClick} />
         </div>
+
+        {screenSize > 490 && (
+          <div className={styles.buttonWrapper}>
+            <Suspense fallback={<p>loading...</p>}>
+              <LazySliderButton
+                onClick={() => buttonOnClick('right')}
+                disabled={slide === symbols.length - 1}
+              />
+            </Suspense>
+          </div>
+        )}
+      </section>
+
+      {isBtcSlide && <BtcBlockInfoButton onClick={() => setIsModal(true)} />}
+
+      {isModal && isBtcSlide && (
+        <Modal onClose={() => setIsModal(false)}>
+          <BtcBlockInfoContent />
+        </Modal>
       )}
-    </section>
+    </div>
   );
 };

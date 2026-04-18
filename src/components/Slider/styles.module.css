@@ -1,3 +1,11 @@
+.sliderWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 36px;
+}
+
 .sliderContainer {
   display: flex;
   justify-content: space-between;
